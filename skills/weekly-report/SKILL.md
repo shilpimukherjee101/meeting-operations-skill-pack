@@ -30,7 +30,7 @@ Information may come from several meetings or people during the same week.
 2. Combine information about the same task, project, or topic.
 3. Remove duplicate information.
 4. Do not invent, assume, or estimate missing information.
-5. If an important number or update is not provided, explicitly write **"Not provided"**.
+5. If a number or update is required by the report context but is not provided in the source notes, write **"Not provided"**. Do not create or estimate missing information.
 6. Use plain, professional language.
 7. Keep the report concise and factual.
 8. Do not add praise, celebration, unnecessary adjectives, or filler.
@@ -55,7 +55,7 @@ List work that is currently ongoing.
 
 ### 4. Blockers
 
-List problems, dependencies, or issues preventing progress.
+List only problems or dependencies that are explicitly stated as blocking or preventing progress. Do not assume that an issue is a blocker unless the source notes say so.
 
 If there are no blockers, write:
 **No blockers reported.**
