@@ -1,0 +1,91 @@
+---
+name: notes-to-actions
+description: Use when the user pastes raw meeting notes, call transcripts, or a messy set of bullet points and asks for a list of action items, next steps, follow-ups, or "what do we need to do." Also use when they ask to "turn these notes into tasks" or "what came out of this meeting." Do not use for producing a full weekly status report (see weekly-report) or for logging a decision on its own (see decision-log-entry).
+notes-to-actions
+Turn messy, real-world meeting notes into a clean, reliable action list. The
+notes will be informal: half-sentences, fragments, people talking over each
+other, things mentioned twice, things that never got resolved. Your job is to
+extract only genuine commitments — not to clean up prose, and not to guess.
+Steps
+Read the whole set of notes first, before extracting anything. Context
+earlier in the notes often changes whether something later is a real
+commitment or just a re-mention of an idea.
+Find every candidate action — anything that sounds like something a
+person is going to do.
+Classify each candidate as one of:
+Action — someone is going to do something. There is a clear task.
+Discussed only — the topic came up, was debated, or was mentioned as
+a possibility, but nobody committed to doing it.
+If you cannot tell which one it is, treat it as Discussed only and
+say why in a note. Do not upgrade an ambiguous mention into an action to
+make the list look more complete.
+For every action, extract three fields: what is to be done, who owns
+it, and by when.
+Never invent an owner or a deadline. If the notes do not name a
+specific owner, the owner is `Unassigned`. If the notes do not name a
+specific date or clear timeframe, the deadline is `No date given`. Do not
+infer an owner from "whoever usually does this" or a deadline from "soon"
+— write down exactly what the notes support and nothing more.
+Flag every unassigned or undated action for a human. These are not
+errors to quietly patch — they are the point of this Skill. Collect them
+in a separate "Needs a decision" list at the end so they cannot be missed.
+Output the action list, followed by the "Discussed only" list,
+followed by the "Needs a decision" flags.
+Output must always contain
+A numbered Actions list. Each item: What / Owner / By when.
+A Discussed, not actioned list — even if empty, say so explicitly
+("Nothing was discussed without an action" is a valid, useful line).
+A Needs a decision list of every action missing an owner and/or a
+deadline, so a human can resolve them. If this list is empty, say so.
+Must never do
+Never invent, guess, or infer an owner or deadline that is not stated or
+very clearly implied by name in the notes (e.g. "Priya, can you send that
+by Friday?" is clear enough; "someone should look at this" is not).
+Never merge two different action items into one because they're related.
+Never silently drop an ambiguous item — it goes in "Discussed only" or
+"Needs a decision," not nowhere.
+Never smooth a vague commitment into a firm one. "I'll try to get to it"
+is weaker than "I'll have it done Thursday" — reflect that, don't average
+it out.
+When information is missing
+This is the core judgment call in this Skill:
+No owner named at all → `Owner: Unassigned` + flag it.
+Owner implied but not named ("someone from design") → `Owner: Unassigned (design team member, per notes)` + flag it. Preserve the partial
+information rather than discarding it.
+No date, or a vague one ("soon", "eventually", "next sprint" with no
+sprint dates given) → `By when: No date given` (or, for a vague-but-real
+signal like "next sprint," keep the phrase verbatim rather than
+converting it to a real date) + flag it.
+A commitment with no clear task attached ("Sarah's on it") → only log it
+as an action if the preceding sentence makes the task obvious; otherwise
+treat as Discussed only and note that the task itself is unclear.
+Example — good output
+Input notes (excerpt):
+> Talked about the onboarding flow being too long. Priya said she'd cut the
+> signup form down to 3 fields by end of week. We also discussed maybe
+> adding SSO at some point but didn't land on anything. Dan's going to look
+> into the drop-off numbers.
+Output:
+Actions
+What: Cut the signup form down to 3 fields. Owner: Priya. By
+when: End of week.
+What: Look into the drop-off numbers. Owner: Dan. By when:
+No date given.
+Discussed, not actioned
+Adding SSO to onboarding — raised as a possibility, no decision or owner.
+Needs a decision
+Action 2 (drop-off numbers) has no deadline — confirm with Dan by when.
+Why this is good: it kept Priya's real deadline, refused to invent one for
+Dan, and correctly left SSO out of the action list since nobody committed to it.
+Example — bad output (what not to do)
+Same input as above.
+Bad output:
+Actions
+Priya — shorten signup form (this week)
+Dan — investigate drop-off numbers (by Friday)
+Team — add SSO support
+Why this is bad: it invented a Friday deadline for Dan that was never
+stated, it promoted the SSO discussion to a committed action with a
+fabricated owner ("Team"), and it dropped the distinction between what was
+decided and what was merely floated — exactly the two things this Skill
+must never do.
