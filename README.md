@@ -7,9 +7,9 @@ This Skill Pack contains three Skills designed to turn messy meeting information
 
 The Skills cover three different stages of working with meeting notes:
 
-1. Extracting action items and next steps
-2. Creating a concise weekly report
-3. Creating a structured decision-log entry
+1. Extracting action items and next steps- Owner: Oluwatosin_Ajayi
+2. Creating a concise weekly report- Owner: Mukherjee_Shilpi
+3. Creating a structured decision-log entry- Owner: Kenzy_Maafi
 
 The Skills are designed to work with real-world meeting notes, where information may be incomplete, duplicated, informal, or unclear.
 
@@ -32,7 +32,7 @@ The Skill must not invent owners, deadlines, or commitments.
 
 ---
 
-### 2. Weekly Report
+### 2. Weekly Report 
 
 **Purpose:**  
 Combine multiple meeting notes and weekly updates into one concise weekly report.
